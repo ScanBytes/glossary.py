@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glossary"
+authors = [{name = "KOLANICH"}]
+description = "A pure python implementation of a reader for indexes produced by glossary tool."
+readme = "ReadMe.md"
+keywords = ["glossary"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	#"License :: Public Domain :: Unlicense",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+dependencies = [
+	"kaitaistruct",
+	"fsutilz @ https://github.com/prebuilder/fsutilz.py",
+]
+dynamic = ["version"]
+
+
+[project.urls]
+Homepage = "https://github.com/KOLANICH-libs/glossary.py"
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = false
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools_scm]
+
+[tool.kaitai.repos."https://github.com/KOLANICH/kaitai_struct_formats.git"."glossary_index"]
+update = true
+search = false
+localPath = "kaitai_struct_formats" # rel to pyproject.toml dir
+outputDir = "glossary/kaitai" # rel to localPath
+inputDir = "database"
+
+[tool.kaitai.repos."https://github.com/KOLANICH/kaitai_struct_formats.git"."glossary_index".formats.glossary_index]
+path = "glossary_index.ksy"

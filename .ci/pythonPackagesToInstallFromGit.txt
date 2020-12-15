@@ -1,0 +1,2 @@
+https://github.com/prebuilder/fsutilz.py.git
+https://github.com/kaitai-io/kaitai_struct_python_runtime.git
